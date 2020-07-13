@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src='Frame.js'></script>
+<script>
+$(document).ready(function(){
+  var frame; 
+  frame = new Frame();
+  $('#randomroll1').click( function() {
+    var roll1 = Math.round(Math.random()*10);
+    frame.rollOne(roll1);
+  });
+  $('#randomroll2').click( function() {
+    var roll2 = ((Math.round(Math.random()*10))%(10-(frame.firstRoll)));
+    frame.rollTwo(roll2);
+  });
+  $('#randomroll1').click( function() {
+    $('#frame1roll1').text(frame.firstRoll);
+    $('#frame1roll2').text(frame.secondRoll);
+    $('#total').text(frame.total);
+  });
+  $('#randomroll2').click( function() {
+    $('#frame1roll1').text(frame.firstRoll);
+    $('#frame1roll2').text(frame.secondRoll);
+    $('#total').text(frame.total);
+  });
+});
+  
+</script>
+
+<button>New Game</button>
+
+<button id='randomroll1' >Roll one</button>
+<button id='randomroll2' >Roll two</button>
+
+<br></br>
+
+<h1> Player name </h1>
+
+<div id='scorecard' name='scorecard'>
+  <h2 id='frame1' text: bold> Frame 1: <h2>
+  <h2 id='frame1roll1'> 1</div>
+  <h2 id='frame1roll2'> 2</div>
+  <div id='total'> Total</div>
+</div>
